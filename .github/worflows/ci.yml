@@ -1,0 +1,29 @@
+name: "ci pipelin by sahil saykar"
+
+on:
+  push:
+    branches:
+      - main
+      - master
+jobs:
+  build and test:
+      run-on: ubuntu-latest
+
+      steps:
+          - name: "setup Node js"
+            uses: actions/setup-node@v4
+            with: 
+              node-version: "21"
+
+          - name: "Check node version"
+            run: node --version
+
+          - name: "clone the repository"
+            uses: actions/checkout@v2
+
+          - name: "list directory"
+            run: ls 
+
+          - name: "Run build"
+            run: npm run build
+
